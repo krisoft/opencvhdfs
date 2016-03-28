@@ -22,9 +22,9 @@ target_link_libraries(opencvhdfs_lib
 	${HDF5_LIBRARIES}
 )
 
-option(enable_example "enable_example" OFF)
-
-if(enable_example)
+option(BUILD_EXAMPLE "Build example" OFF)
+if(BUILD_EXAMPLE)
+	message("Building example")
 	add_executable(example example.cpp)
 	target_link_libraries(example opencvhdfs_lib ${OpenCV_LIBS})
-endif()
+endif(BUILD_EXAMPLE)
