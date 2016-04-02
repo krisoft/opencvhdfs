@@ -30,7 +30,7 @@ H5::PredType datatypeCV2H5( int cv_type )
 
 void write( H5::H5File file, std::string key, cv::Mat matrix )
 {
-	hsize_t      dims[3]  = { matrix.cols, matrix.rows, matrix.channels()};
+	hsize_t      dims[3]  = { matrix.rows, matrix.cols, matrix.channels()};
 	H5::DataSpace mspace( 3, dims);
 
 	H5::PredType datatype = datatypeCV2H5( matrix.type() );
@@ -148,7 +148,7 @@ void read( H5::H5File file, std::string key, cv::Mat &matrix )
 		throw std::runtime_error("dataset's type class is not supported.");
 	}
 
-	matrix.create( dims_out[1], dims_out[0], cvtype );
+	matrix.create( dims_out[0], dims_out[1], cvtype );
 
 
 	hsize_t      offset[3];   // hyperslab offset in the file
