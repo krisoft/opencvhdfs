@@ -6,7 +6,7 @@ find_package( OpenCV REQUIRED )
 find_package(HDF5 COMPONENTS CXX)
 
 include_directories(
-	${PROJECT_SOURCE_DIR}/include
+	include
 	${OPENCV_INCLUDE_DIRS}
 	${HDF5_INCLUDE_DIRS}
 )
