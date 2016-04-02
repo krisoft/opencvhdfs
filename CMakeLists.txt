@@ -12,7 +12,7 @@ include_directories(
 )
 
 file(GLOB opencvhdfs_SRC
-    "src/*.cpp"
+	"src/*.cpp"
 )
 
 add_library(opencvhdfs_lib SHARED ${opencvhdfs_SRC})
@@ -28,3 +28,13 @@ if(BUILD_EXAMPLE)
 	add_executable(example example.cpp)
 	target_link_libraries(example opencvhdfs_lib ${OpenCV_LIBS})
 endif(BUILD_EXAMPLE)
+
+
+install(TARGETS opencvhdfs_lib
+	LIBRARY DESTINATION lib
+)
+
+install(FILES include/opencvhdfs.h
+	DESTINATION include
+)
+
